@@ -6,7 +6,7 @@
 <title>Studio Byhaa × Villa Sjövik</title>
 <link rel="icon" type="image/png" href="./studio-byhaa-favicon.png"/>
 <meta property="og:title" content="Studio Byhaa × Villa Sjövik — Collaboration proposal 2026"/>
-<meta property="og:description" content="Alabaster’s warm glow at Villa Sjövik, for 199,000 followers who invest in considered interiors."/>
+<meta property="og:description" content="Alabaster’s warm glow at Villa Sjövik, for 200,000 followers who invest in considered interiors."/>
 <meta property="og:image" content="https://villasjovik.github.io/studio-byhaa/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Studio Byhaa × Villa Sjövik — Collaboration proposal 2026"/>
-<meta name="twitter:description" content="Alabaster’s warm glow at Villa Sjövik, for 199,000 followers who invest in considered interiors."/>
+<meta name="twitter:description" content="Alabaster’s warm glow at Villa Sjövik, for 200,000 followers who invest in considered interiors."/>
 <meta name="twitter:image" content="https://villasjovik.github.io/studio-byhaa/og-image.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -614,6 +614,22 @@ background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:
 .price-grid>.pkg-col.featured{--pb-scale:1;z-index:2}
 .pkg-col:hover{--pb-rot:0deg!important;--pb-hover:-8px}
 
+/* Muted reference packages, following the delivered Etzinger page. */
+.pkg-col.is-muted{--pb-rot:0deg!important;--pb-scale:.86;animation:none!important;pointer-events:none}
+.body-loaded .price-grid>.pkg-col.is-muted.rv:not(.in){--pb-rot:0deg!important}
+.body-loaded .price-grid>.pkg-col.is-muted.rv.in{opacity:.42}
+@media(prefers-reduced-motion:reduce){
+  .body-loaded .price-grid>.pkg-col.is-muted.rv{opacity:.42!important}
+}
+.pkg-col.is-muted .price-box{filter:grayscale(1);
+  border-color:rgba(242,237,228,.14);border-top-color:rgba(242,237,228,.2);
+  background:linear-gradient(145deg,rgba(242,237,228,.035) 0%,rgba(242,237,228,.012) 100%);
+  box-shadow:0 26px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04)}
+.pkg-col.is-muted .price-box::before{opacity:0}
+.pkg-col.is-muted .price-plate{transform:none;background:rgba(0,0,0,.2);border-color:rgba(242,237,228,.1)}
+.pkg-col.is-muted .price-title{margin-top:14px}
+.pkg-col.is-muted .pi:hover{transform:none}
+
 /* Three-zone signable document. NOTE: backdrop-filter + overflow:hidden removed —
    both flatten 3D and would kill the counter-rotated price plate. */
 .price-box{border:1px solid rgba(212,168,75,.2);border-top:2px solid rgba(212,168,75,.45);border-radius:22px;
@@ -682,13 +698,14 @@ box-shadow:
 .price-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:500;color:var(--ink);margin-bottom:8px;line-height:1.05;letter-spacing:-.005em}
 .price-sub{font-family:'Inter',sans-serif;font-size:12px;color:rgba(242,237,228,.7);letter-spacing:.03em;line-height:1.6;font-weight:400;
   padding-bottom:24px;border-bottom:1px solid rgba(212,168,75,.14);margin-bottom:28px}
-/* no-wrap: .price-sub "3 videor · 6 stories…" ≈ column width — size frozen at 12px, alpha lift only */
+/* Keep package summaries at the established 12px size. */
 .price-total-lbl{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 /* anchor-price story — legible anchor, gold strike that draws in on reveal */
 .price-orig{font-family:'Inter',sans-serif;font-size:15px;font-weight:300;color:rgba(242,237,228,.55);text-decoration:none;position:relative;display:inline-block;margin-bottom:6px;letter-spacing:.02em}
 .price-orig::after{content:'';position:absolute;left:0;top:54%;width:100%;height:1.5px;background:rgba(212,168,75,.6);
   transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease) .35s}
 .price-box.in .price-orig::after{transform:scaleX(1)}
+.price-save{display:inline-block;margin-top:14px;padding:6px 11px;border:1px solid rgba(212,168,75,.55);border-radius:100px;background:rgba(212,168,75,.14);color:var(--gold2);font-size:12px;font-weight:600;letter-spacing:.03em}
 .price-total{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,58px);font-weight:500;color:var(--ink);line-height:1;
   font-feature-settings:"tnum" 1,"lnum" 1;letter-spacing:-.01em}
 .cu{font-feature-settings:"tnum" 1,"lnum" 1}
@@ -736,6 +753,13 @@ box-shadow:
 .body-loaded .price-box.in .pi:nth-child(3){animation-delay:.34s}
 .body-loaded .price-box.in .pi:nth-child(4){animation-delay:.4s}
 .body-loaded .price-box.in .pi:nth-child(5){animation-delay:.46s}
+
+.price-context{margin-top:22px;font-size:13px;line-height:1.65;color:rgba(242,237,228,.75)}
+.price-payment{margin-top:22px;padding:18px 16px;border:1px solid rgba(212,168,75,.3);border-radius:12px;background:rgba(212,168,75,.045);font-size:13px;line-height:1.6}
+.price-payment h4{font-size:12px;font-weight:600;color:var(--gold);margin-bottom:10px}
+.price-payment p+p{margin-top:8px}
+.price-payment strong{color:var(--gold2);font-weight:600}
+.price-payment .payment-note{font-size:12px;color:rgba(242,237,228,.7)}
 
 /* Per-paket Reach Boost — green "handle" container ABOVE the price-card. */
 .pkg-boost{
@@ -1343,7 +1367,7 @@ position:relative;overflow:hidden;transition:color .35s}
       </div>
     </div>
     <div class="h-tag-p" data-par="5,4">
-    <h1 class="h-tagline">Alabaster’s warm glow at Villa Sjövik, for <em>199,000 followers</em> who invest in considered interiors.</h1>
+    <h1 class="h-tagline">Alabaster’s warm glow at Villa Sjövik, for <em>200,000 followers</em> who invest in considered interiors.</h1>
     </div>
     <div class="h-scroll" aria-hidden="true">
       <span>Explore</span>
@@ -1394,35 +1418,35 @@ position:relative;overflow:hidden;transition:color .35s}
 <section id="sec-spar">
   <div class="sp-orb sp-orb-1" aria-hidden="true"></div>
   <div class="sp-inner">
-    <p class="sec-lbl rv">Three ideas, one open route</p>
-    <h2 class="sec-h2 ws rv">Three ways to make <em>alabaster memorable.</em></h2>
+    <p class="sec-lbl rv">Three ideas for one video</p>
+    <h2 class="sec-h2 ws rv">One video to make <em>the lamp wanted.</em></h2>
     <div class="sp-grid sp-grid-3plus1">
 
       <div class="sp-c rv d1">
         <i class="sp-bg" data-n="01" aria-hidden="true"></i>
         <p class="sp-eyebrow">Route 01</p>
-        <h3>Make the glow recognisable</h3>
-        <p class="sp-sub">“Let the material carry the name”</p>
-        <p class="sp-body">Curra’s natural veining and warm glow become the link between Studio Byhaa and the moment the evening light changes at Villa Sjövik. The goal is to build recognition for your alabaster lamps and bring interested viewers to the Curra collection through stories with direct links.</p>
-        <div class="sp-foot"><span class="sp-tag">Recognition &middot; Alabaster &middot; Shop visits</span></div>
+        <h3>From inspiration to a purchase</h3>
+        <p class="sp-sub">“Make the lamp part of the evening”</p>
+        <p class="sp-body">Two round Applique sconces in brass and alabaster frame a table setting at Villa Sjövik, with the Small and Medium alabaster Box Sandoux as decorative details below. The lamps lead the scene, with close-ups of their veining and warm glow giving viewers a reason to look closer. Two stories with direct links connect that interest to the product. The goal is store visits that lead to lamp sales.</p>
+        <div class="sp-foot"><span class="sp-tag">Desire &middot; Shop visits &middot; Sales</span></div>
       </div>
 
       <div class="sp-c rv d2">
         <i class="sp-bg" data-n="02" aria-hidden="true"></i>
         <p class="sp-eyebrow">Route 02</p>
-        <h3>One material, more rooms</h3>
-        <p class="sp-sub">“Give the collection a wider place”</p>
-        <p class="sp-body">The same alabaster glow connects a windowsill at dusk, a bedside table and a dining table, with Curra and Cylinder Nusseen offering different expressions of the material. The goal is to help buyers picture more than one place for Studio Byhaa in their homes and explore more of your table lamp collection.</p>
-        <div class="sp-foot"><span class="sp-tag">Consideration &middot; Collection &middot; Demand</span></div>
+        <h3>A reason to choose alabaster</h3>
+        <p class="sp-sub">“Let the glow create desire”</p>
+        <p class="sp-body">The round Applique pair is the focal point of an evening scene at Villa Sjövik. As daylight fades, close-ups show the glow through the alabaster alongside the brass, with the Small and Medium alabaster Box Sandoux adding stone details on the table below. The two sconces remain the main subject. The goal is to bring interested buyers to the Applique in your shop through the linked stories.</p>
+        <div class="sp-foot"><span class="sp-tag">Material &middot; Desire &middot; Shop visits</span></div>
       </div>
 
       <div class="sp-c rv d3">
         <i class="sp-bg" data-n="03" aria-hidden="true"></i>
         <p class="sp-eyebrow">Route 03</p>
-        <h3>A signature for your own ads</h3>
-        <p class="sp-sub">“Keep the glow working for you”</p>
-        <p class="sp-body">Alabaster’s changing character, from veined stone in daylight to a warm glow after dark, gives Studio Byhaa a recognisable theme across a campaign at Villa Sjövik. The goal is a coherent set of video and images that you own and can use in your own channels, website and paid advertising to reach future buyers.</p>
-        <div class="sp-foot"><span class="sp-tag">Owned content &middot; Advertising &middot; Brand value</span></div>
+        <h3>Let the video keep selling</h3>
+        <p class="sp-sub">“Keep the feeling working in your ads”</p>
+        <p class="sp-body">A pair of round Applique sconces in brass and alabaster frames a bedside setting at Villa Sjövik, with the Small and Medium alabaster Box Sandoux as decorative details beside the bed. Close-ups bring the brass and alabaster into view alongside the wider scene, so viewers recognise the lamps in your shop. After publication in Villa Sjövik’s channels, the same video can continue in Studio Byhaa’s own advertising. The goal is repeat product visits and more lamp sales.</p>
+        <div class="sp-foot"><span class="sp-tag">Own ads &middot; Product visits &middot; Sales</span></div>
       </div>
 
       <div class="sp-divider rv" aria-hidden="true"></div>
@@ -1435,11 +1459,11 @@ position:relative;overflow:hidden;transition:color .35s}
           <div>
             <p class="sp-eyebrow">Route 04</p>
             <h3>Your setup</h3>
-            <p class="sp-sub">“Shaped around Studio Byhaa’s own priorities”</p>
+            <p class="sp-sub">“One video, shaped around your priorities”</p>
           </div>
-          <p class="sp-body">The routes can be shaped around your product priorities, a campaign period or an idea of your own. Share what would lift Studio Byhaa’s communication right now, and Villa Sjövik shapes the campaign around it.</p>
+          <p class="sp-body">Choose a direction for one video and 2 stories with direct links and CTA, published the same day in Villa Sjövik’s channels. The Video Pack payment plan is €500 received by 1 December 2026 and €500 by 1 January 2027. Send the selected products to Villa Sjövik. Concept and schedule approved with Studio Byhaa before filming. The goal is to bring buyers to your shop and support lamp sales.</p>
         </div>
-        <span class="sp-tag">Product priority &middot; Your brief &middot; Flexible campaign</span>
+        <span class="sp-tag">One video &middot; Your brief &middot; Sales</span>
       </div>
 
     </div>
@@ -1462,8 +1486,8 @@ position:relative;overflow:hidden;transition:color .35s}
     <!-- Landskortet borttaget ur kanon (Lucas 2026-09-18). Korten staplas i en kolumn och rubriken till vänster följer med vid skroll, som V2-formen (Lucas 2026-09-21). -->
     <div class="stats-grid" lang="en">
       <div class="sc rv d1">
-        <div class="sc-bg" aria-hidden="true">199</div>
-        <span class="sc-num"><span class="cu" data-v="199000" data-sep="true">199,000</span></span>
+        <div class="sc-bg" aria-hidden="true">200</div>
+        <span class="sc-num"><span class="cu" data-v="200000" data-sep="true">200,000</span></span>
         <p class="sc-sub">165k Instagram &middot; 34k Facebook</p>
         <p class="sc-lbl">Followers in total</p>
       </div>
@@ -1491,11 +1515,11 @@ position:relative;overflow:hidden;transition:color .35s}
   <div class="pr-orb pr-orb-2" aria-hidden="true"></div>
   <div class="pr-inner">
     <p class="sec-lbl rv">Collaboration overview</p>
-    <h2 class="sec-h2 ws rv" lang="en">Two ways to build <em class="pi-reach">story and reach.</em></h2>
+    <h2 class="sec-h2 ws rv" lang="en">Three packages. <em class="pi-reach">Start with video.</em></h2>
 
-    <div class="price-grid">
+    <div class="price-grid three">
 
-      <div class="pkg-col rv d1" data-pkg-col="start">
+      <div class="pkg-col featured rv d1" data-pkg-col="start">
         <div class="pkg-boost" role="group" aria-pressed="false" data-pkg="start">
           <button type="button" class="pkg-boost-head" aria-pressed="false" aria-controls="pkg-boost-body-start" aria-label="Activate Meta reach for Video Pack">
             <span class="pkg-boost-switch" aria-hidden="true"></span>
@@ -1521,19 +1545,29 @@ position:relative;overflow:hidden;transition:color .35s}
             </div>
           </div>
         </div>
-        <div class="price-box rv" data-pkg-box="start">
+        <div class="price-box featured rv" data-pkg-box="start">
+          <i class="pr-sheen" aria-hidden="true"></i>
           <i class="pr-bg" data-n="01" aria-hidden="true"></i>
+          <span class="price-ribbon">Recommended &middot; BEST VALUE</span>
           <h3 class="price-title">Video Pack</h3>
-          <p class="price-sub">1 video &middot; 2 stories with CTA &middot; 10 lifestyle images</p>
+          <p class="price-sub">1 video &middot; 2 stories with CTA</p>
           <div class="price-plate">
           <p class="price-total-lbl">Production fee</p>
-          <p class="price-total" data-base="1850" data-boost="2850">1,850</p>
+          <p class="price-orig" data-base="reg. €1,850" data-boost="reg. €2,850">reg. €1,850</p>
+          <p class="price-total" data-base="1000" data-boost="2000">1,000</p>
           <span class="price-unit">EUR</span>
+          <span class="price-save">Save €850</span>
+          </div>
+          <p class="price-context">With your own photographer in-house, this package focuses on video and stories, with no separate lifestyle images. It is Villa Sjövik’s best-value format, offered at a first-collaboration price for Studio Byhaa.</p>
+          <div class="price-payment" aria-label="Video Pack payment plan">
+            <h4>Video Pack payment plan</h4>
+            <p><strong>€500</strong> received by <time datetime="2026-12-01">1 December 2026</time></p>
+            <p><strong>€500</strong> received by <time datetime="2027-01-01">1 January 2027</time></p>
+            <p class="payment-note">Invoices are issued well ahead of each date. Payment must have reached Villa Sjövik by the stated dates.</p>
           </div>
           <div class="price-includes">
-            <p class="pi hi"><span>1 video published in Villa Sjövik's channels <em class="pi-reach">for 199,000 followers</em></span></p>
-            <p class="pi hi"><span>2 stories with direct link and CTA</span></p>
-            <p class="pi hi"><span>10 lifestyle images in an authentic home setting</span></p>
+            <p class="pi hi"><span>1 video published in Villa Sjövik’s Instagram and Facebook channels <em class="pi-reach">for 200,000 followers</em></span></p>
+            <p class="pi hi"><span>2 stories with direct link and CTA in Villa Sjövik’s channels, on the same day as the video</span></p>
             <p class="pi"><span>You own all delivered material, with permanent usage rights for your channels, website and paid advertising.</span></p>
             <p class="pi"><span>Concept and schedule approved with Studio Byhaa; styling, filming and editing included</span></p>
             <p class="pi"><span>Published videos remain permanently in Villa Sjövik’s channels.</span></p>
@@ -1541,47 +1575,40 @@ position:relative;overflow:hidden;transition:color .35s}
         </div>
       </div>
 
-      <!-- Kampanjpaket (featured) -->
-      <div class="pkg-col featured rv d2" data-pkg-col="season">
-        <div class="pkg-boost" role="group" aria-pressed="false" data-pkg="season">
-          <button type="button" class="pkg-boost-head" aria-pressed="false" aria-controls="pkg-boost-body-season" aria-label="Activate Meta reach for Campaign Package">
-            <span class="pkg-boost-switch" aria-hidden="true"></span>
-            <span class="pkg-boost-text">
-              <span class="pkg-boost-tag">Optional &middot; <em>Reach Boost</em></span>
-              <span class="pkg-boost-title">Meta reach budget <span class="pkg-boost-price" data-bt-price="season">+€3,000</span></span>
-            </span>
-          </button>
-          <div class="pkg-boost-body" id="pkg-boost-body-season" aria-hidden="true">
-            <div class="pkg-boost-body-inner">
-              <p class="pkg-boost-desc" data-pkg-desc="season">All three productions receive retargeting. The videos are shown again to previous viewers, adding over <strong class="pkg-boost-stat" data-bt-stat="season">450,000</strong> impressions with clickable links that direct traffic to your online shop.</p>
-              <p class="pkg-boost-desc-zero" data-pkg-desc-zero="season" hidden>Choose a budget below to see how many extra impressions the package delivers.</p>
-              <div class="pkg-slider">
-                <label class="pkg-slider-lbl" for="pk-range-season">Meta budget per production</label>
-                <input id="pk-range-season" class="pkg-range" type="range" min="0" max="3" step="1" value="2" data-pkg-slider="season" aria-label="Meta budget per production for Campaign Package"/>
-                <div class="pkg-ticks" aria-hidden="true">
-                  <span class="pkg-tick" data-pkg-tick="season" data-step="0">€0</span>
-                  <span class="pkg-tick" data-pkg-tick="season" data-step="1">€500</span>
-                  <span class="pkg-tick is-active" data-pkg-tick="season" data-step="2">€1,000</span>
-                  <span class="pkg-tick" data-pkg-tick="season" data-step="3">€2,000</span>
-                </div>
-              </div>
-            </div>
+      <!-- Muted reference package; photo-only production. -->
+      <div class="pkg-col is-muted rv d2" aria-disabled="true" data-pkg-col="content">
+        <div class="price-box rv" data-pkg-box="content">
+          <i class="pr-bg" data-n="02" aria-hidden="true"></i>
+          <h3 class="price-title">Content Package</h3>
+          <p class="price-sub">20 product and lifestyle images</p>
+          <div class="price-plate">
+            <p class="price-total-lbl">Price</p>
+            <p class="price-total" data-base="1200">1,200</p>
+            <span class="price-unit">EUR</span>
+          </div>
+          <div class="price-includes">
+            <p class="pi hi"><span>20 product and lifestyle images, photographed in a home setting at Villa Sjövik</span></p>
+            <p class="pi hi"><span>Permanent media rights for your website, own channels and paid ads, with no time limit</span></p>
+            <p class="pi hi"><span>Villa Sjövik receives your products, photographs an extensive image library at home and sends all 20 images to Studio Byhaa</span></p>
+            <p class="pi"><span>Styling, photography and editing included</span></p>
+            <p class="pi"><span>Photography for your own use, without publication in Villa Sjövik’s channels</span></p>
           </div>
         </div>
-        <div class="price-box featured rv" data-pkg-box="season">
-          <i class="pr-sheen" aria-hidden="true"></i>
-          <i class="pr-bg" data-n="02" aria-hidden="true"></i>
-          <span class="price-ribbon">Recommended &middot; BEST VALUE</span>
+      </div>
+
+
+      <div class="pkg-col is-muted rv d3" aria-disabled="true" data-pkg-col="campaign">
+        <div class="price-box rv" data-pkg-box="campaign">
+          <i class="pr-bg" data-n="03" aria-hidden="true"></i>
           <h3 class="price-title">Campaign Package</h3>
           <p class="price-sub">3 videos &middot; 6 stories with CTA &middot; 60 lifestyle images</p>
           <div class="price-plate">
-          <p class="price-total-lbl">Production fee</p>
-          <p class="price-orig" data-base="reg. €5,550" data-boost="reg. €8,550">reg. €5,550</p>
-          <p class="price-total" data-base="3500" data-boost="6500">3,500</p>
-          <span class="price-unit">EUR</span>
+            <p class="price-total-lbl">Production fee</p>
+            <p class="price-total" data-base="3000">3,000</p>
+            <span class="price-unit">EUR</span>
           </div>
           <div class="price-includes">
-            <p class="pi hi"><span>3 videos published in Villa Sjövik's channels <em class="pi-reach">for 199,000 followers</em></span></p>
+            <p class="pi hi"><span>3 videos published in Villa Sjövik’s Instagram and Facebook channels <em class="pi-reach">for 200,000 followers</em></span></p>
             <p class="pi hi"><span>6 stories with direct link and CTA</span></p>
             <p class="pi hi"><span>60 lifestyle images in an authentic home setting</span></p>
             <p class="pi"><span>You own all delivered material, with permanent usage rights for your channels, website and paid advertising.</span></p>
@@ -2121,8 +2148,8 @@ document.querySelectorAll('.gc,.lc,.sp-c').forEach(card=>{
 
   // Step values: €0, €500, €1,000, €2,000 per production.
   const STEP_VALUES=[0,500,1000,2000];
-  const cardBudget={start:1000, season:1000};
-  const PKG_MULT={start:1, season:3};
+  const cardBudget={start:1000};
+  const PKG_MULT={start:1};
 
   function stepFromBudget(b){
     let idx=STEP_VALUES.indexOf(b);
@@ -2345,12 +2372,10 @@ document.querySelectorAll('.gc,.lc,.sp-c').forEach(card=>{
 
   // Initial render
   refreshCard('start');
-  refreshCard('season');
 })();
 
-/* META-RÄCKVIDD AUTO-AKTIVERING — Kampanjpaket (featured) togglar ON automatiskt
-   när investerings-sektionen står stilla i view en kort stund, visas ett par
-   sekunder och stängs sedan av igen → tillbaka till Kampanjpaketets originalpris. */
+/* REACH BOOST AUTO-DEMO — the featured Video Pack opens briefly,
+   then returns to its €1,000 base fee and reg. €1,850 anchor. */
 (function(){
   const sec=document.getElementById('sec-pr');
   const btn=document.querySelector('.pkg-col.featured .pkg-boost-head');
